@@ -1,16 +1,14 @@
-# rustyflutter
-
-Flutter + Rust
+# Flutter + Rust
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Install the [Flutter SDK](https://docs.flutter.dev/get-started/install)
+Install the [Rust toolchain](https://www.rust-lang.org/tools/install)
 
-A few resources to get you started if this is your first Flutter project:
+Install the dependencies:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+```sh
+cargo install flutter_rust_bridge_codegen
+flutter pub get
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
