@@ -1,6 +1,11 @@
 # Flutter Core
 
-Build with `flutter_rust_bridge_codegen create core --template plugin`
+Build with:
+
+```sh
+flutter_rust_bridge_codegen create core --template plugin --org dev.plugfox \
+  --rust-crate-name core --rust-crate-dir ffi
+```
 
 ## Getting Started
 
