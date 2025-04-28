@@ -1,0 +1,85 @@
+# ==============================================================================
+# PROJECT METADATA
+# ==============================================================================
+
+name: rustyflutter
+description: "Flutter + Rust"
+
+# Prevent accidental publishing to pub.dev.
+publish_to: "none"
+
+version: 0.0.1
+
+# ==============================================================================
+# PROJECT STRUCTURE
+# ==============================================================================
+
+#workspace:
+#  - packages/ui
+#  - packages/localization
+
+# ==============================================================================
+# DEPENDENCIES
+# ==============================================================================
+
+environment:
+  sdk: ">=3.7.0 <4.0.0"
+  flutter: ">=3.29.3"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  #  flutter_localizations:
+  #    sdk: flutter
+  #flutter_gpu:
+  #  sdk: flutter
+
+  # Workspace packages
+  #  ui:
+  #    path: packages/ui
+  #  localization:
+  #    path: packages/localization
+
+  # Flutter dependencies
+  path: any
+  meta: any
+  async: any
+  collection: any
+
+  # Utilities
+  #intl: any # From Flutter Localization
+  l: ^5.0.0
+
+dev_dependencies:
+  # Unit & Widget tests for Flutter
+  #flutter_test:
+  #  sdk: flutter
+  # Integration tests for Flutter
+  #integration_test:
+  #  sdk: flutter
+
+  # Flutter dependencies
+  #fake_async: any
+  #clock: any
+
+  # Linter and analyzer
+  flutter_lints: ^5.0.0
+
+  # Code generation
+  #build_runner: ^2.4.15
+
+# ==============================================================================
+# FLUTTER CONFIGURATION
+# ==============================================================================
+
+flutter:
+  uses-material-design: true
+  # Enable generation of localized Strings from arb files.
+  generate: false
+
+  #shaders:
+  #  - packages/ui/shaders/shimmer.frag
+
+  # Add assets from the assets directory
+  #assets:
+  #  - assets/images/

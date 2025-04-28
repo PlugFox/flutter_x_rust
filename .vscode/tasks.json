@@ -1,0 +1,365 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "flutter:pub:get",
+      "detail": "Get dependencies for the project",
+      "icon": {
+        "color": "terminal.ansiGreen",
+        "id": "cloud-download"
+      },
+      "dependsOn": [],
+      "type": "shell",
+      "command": [
+        "flutter pub get"
+      ],
+      "args": [],
+      "group": {
+        "kind": "none",
+        "isDefault": true
+      },
+      "problemMatcher": [],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "isBackground": false,
+      "presentation": {
+        "reveal": "silent",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": false,
+        "group": "dart"
+      }
+    },
+    {
+      "label": "flutter:l10n",
+      "detail": "Get dependencies for the project",
+      "icon": {
+        "color": "terminal.ansiGreen",
+        "id": "cloud-download"
+      },
+      "dependsOn": [],
+      "type": "shell",
+      "command": [
+        "dart run bin/generate.dart"
+      ],
+      "args": [],
+      "group": {
+        "kind": "none",
+        "isDefault": true
+      },
+      "problemMatcher": [],
+      "options": {
+        "cwd": "${workspaceFolder}/packages/localization"
+      },
+      "isBackground": false,
+      "presentation": {
+        "reveal": "silent",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": false,
+        "group": "dart"
+      }
+    },
+    {
+      "label": "dart:build_runner:all",
+      "detail": "Generate code for the project",
+      "icon": {
+        "color": "terminal.ansiGreen",
+        "id": "code"
+      },
+      "type": "shell",
+      "command": [
+        "flutter pub global activate pubspec_generator",
+        "&& flutter pub global run pubspec_generator:generate -o lib/src/core/pubspec.yaml.g.dart",
+        "&& dart run build_runner build --delete-conflicting-outputs --release",
+        "&& dart format -l 120 lib test"
+      ],
+      "dependsOn": [
+        "flutter:pub:get"
+      ],
+      "args": [],
+      "group": {
+        "kind": "none",
+        "isDefault": true
+      },
+      "problemMatcher": [],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "isBackground": false,
+      "presentation": {
+        "reveal": "silent",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": false,
+        "group": "dart"
+      }
+    },
+    {
+      "label": "dart:build_runner:dir",
+      "detail": "Generate code for the directory",
+      "type": "shell",
+      "icon": {
+        "color": "terminal.ansiGreen",
+        "id": "code"
+      },
+      "command": [
+        "dart run build_runner build --build-filter '${fileDirname}/*.dart'",
+        "&& dart format -l 120 '${fileDirname}'"
+      ],
+      "group": {
+        "kind": "none",
+        "isDefault": true
+      },
+      "problemMatcher": [],
+      "dependsOn": [
+        "flutter:pub:get"
+      ],
+      "isBackground": false,
+      "presentation": {
+        "reveal": "silent",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": false,
+        "group": "dart"
+      }
+    },
+    {
+      "label": "dart:build_runner:watch",
+      "detail": "Watch for changes in the project",
+      "type": "shell",
+      "icon": {
+        "color": "terminal.ansiGreen",
+        "id": "code"
+      },
+      "command": [
+        "dart run build_runner watch --build-filter \"${input:directory}/**/*.dart\""
+      ],
+      "group": {
+        "kind": "none",
+        "isDefault": true
+      },
+      "problemMatcher": [],
+      "dependsOn": [
+        "flutter:pub:get"
+      ],
+      "isBackground": false,
+      "presentation": {
+        "reveal": "silent",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": false,
+        "group": "dart"
+      }
+    },
+    {
+      "label": "dart:format",
+      "detail": "Format all files in the project",
+      "icon": {
+        "color": "terminal.ansiGreen",
+        "id": "lightbulb-autofix"
+      },
+      "type": "shell",
+      "command": [
+        "dart format -l 120 lib test"
+      ],
+      "dependsOn": [],
+      "args": [],
+      "group": {
+        "kind": "none",
+        "isDefault": true
+      },
+      "problemMatcher": [],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "isBackground": false,
+      "presentation": {
+        "reveal": "silent",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": false,
+        "group": "dart"
+      }
+    },
+    {
+      "label": "flutter:pub:outdated",
+      "detail": "Check for outdated dependencies",
+      "icon": {
+        "color": "terminal.ansiGreen",
+        "id": "lightbulb-autofix"
+      },
+      "type": "shell",
+      "command": [
+        "flutter pub outdated --show-all --dev-dependencies --dependency-overrides --transitive --no-prereleases"
+      ],
+      "dependsOn": [],
+      "args": [],
+      "group": {
+        "kind": "none",
+        "isDefault": true
+      },
+      "problemMatcher": [],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "isBackground": false,
+      "presentation": {
+        "reveal": "silent",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": false,
+        "group": "dart"
+      }
+    },
+    {
+      "label": "flutter:pub:upgrade",
+      "detail": "Upgrade dependencies",
+      "icon": {
+        "color": "terminal.ansiGreen",
+        "id": "lightbulb-autofix"
+      },
+      "type": "shell",
+      "command": [
+        "flutter pub upgrade"
+      ],
+      "dependsOn": [],
+      "args": [],
+      "group": {
+        "kind": "none",
+        "isDefault": true
+      },
+      "problemMatcher": [],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "isBackground": false,
+      "presentation": {
+        "reveal": "silent",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": false,
+        "group": "dart"
+      }
+    },
+    {
+      "label": "flutter:test:all",
+      "detail": "Run all tests",
+      "icon": {
+        "color": "terminal.ansiGreen",
+        "id": "bug",
+      },
+      "dependsOn": [
+        "flutter:pub:get"
+      ],
+      "type": "shell",
+      "command": [
+        "flutter test --color --coverage --concurrency=50 --platform=tester --reporter=expanded --timeout=30s test/unit_test.dart test/widget_test.dart"
+      ],
+      "args": [],
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "problemMatcher": [],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "isBackground": false,
+      "presentation": {
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": false,
+        "group": "dart"
+      }
+    },
+    {
+      "label": "flutter:test:feature",
+      "detail": "Run tests for a specific feature",
+      "icon": {
+        "color": "terminal.ansiGreen",
+        "id": "bug",
+      },
+      "dependsOn": [
+        "flutter:pub:get"
+      ],
+      "type": "shell",
+      "command": [
+        "flutter test --color --coverage --concurrency=50 --platform=tester --reporter=expanded --timeout=30s --tags=\"${input:featureName}\" test/unit_test.dart test/widget_test.dart"
+      ],
+      "args": [],
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "problemMatcher": [],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "isBackground": false,
+      "presentation": {
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": false,
+        "group": "dart"
+      }
+    },
+    {
+      "label": "mitmproxy:start",
+      "detail": "Start mitmproxy",
+      "icon": {
+        "color": "terminal.ansiGreen",
+        "id": "debug-start"
+      },
+      "dependsOn": [],
+      "type": "shell",
+      "command": [
+        "docker run --rm -it --name mitmproxy -v ${workspaceFolder}/.mitmproxy:/home/mitmproxy/.mitmproxy -p 8080:8080 -p 127.0.0.1:8081:8081 mitmproxy/mitmproxy mitmweb --web-host 0.0.0.0"
+      ],
+      "args": [],
+      "group": {
+        "kind": "none",
+        "isDefault": true
+      },
+    },
+    {
+      "label": "mitmproxy:stop",
+      "detail": "Stop mitmproxy",
+      "icon": {
+        "color": "terminal.ansiRed",
+        "id": "debug-stop"
+      },
+      "dependsOn": [],
+      "type": "shell",
+      "command": [
+        "docker stop mitmproxy"
+      ],
+      "args": [],
+      "group": {
+        "kind": "none",
+        "isDefault": true
+      },
+    }
+  ],
+  "inputs": [
+    {
+      "id": "featureName",
+      "type": "promptString",
+      "description": "Enter the feature name (e.g., 'app_feature'):",
+      "default": "app_feature"
+    }
+  ]
+}

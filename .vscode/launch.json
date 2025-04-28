@@ -1,0 +1,27 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "[Flutter] Desktop (debug)",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "debug",
+      "program": "lib/main.dart",
+      "cwd": "${workspaceFolder}",
+      "args": [
+        "--dart-define-from-file=config/debug.env",
+      ],
+      /* "preLaunchTask": "dart:build_runner:all" */
+      "osx": {
+        "preLaunchTask": "rust:lib:macos"
+      },
+      "windows": {
+        "preLaunchTask": "rust:lib:windows"
+      },
+      "linux": {
+        "preLaunchTask": "rust:lib:linux"
+      }
+    }
+  ],
+  "compounds": []
+}

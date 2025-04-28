@@ -1,0 +1,8 @@
+targets:
+  $default:
+    sources:
+      - $package$
+      - pubspec.yaml
+      - lib/**
+      - test/**
+    builders:
